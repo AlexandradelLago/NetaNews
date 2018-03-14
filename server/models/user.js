@@ -2,10 +2,11 @@ const mongoose = require("mongoose");
 const Schema   = mongoose.Schema;
 
 const userSchema = new Schema({
-  username: String,
-  password: String,
-  name: String,
-  secret: String
+  username: {type:String},
+  password: {type:String},
+  name: {type:String},
+  email: {type:String},
+  profile:{type:Schema.Types.ObjectId, ref:"Profile"}
 }, {
   timestamps: {
     createdAt: "created_at",
@@ -16,3 +17,5 @@ const userSchema = new Schema({
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;
+
+

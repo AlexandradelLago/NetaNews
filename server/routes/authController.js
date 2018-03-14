@@ -8,7 +8,7 @@ const bcrypt         = require("bcrypt");
 const bcryptSalt     = 19;
 
 authController.post("/signup", (req, res, next) => {
-  if (!req.body.username || !req.body.password || !req.body.name || !req.body.secret) {
+  if (!req.body.username || !req.body.password) {
     res.status(400).json({ message: "Provide all the fields to sign up" });
   }
 
@@ -25,7 +25,7 @@ authController.post("/signup", (req, res, next) => {
       username:req.body.username,
       password: hashPass,
       name:req.body.name,
-      secret:req.body.secret
+      email:req.body.email
     });
 
     console.log(newUser);

@@ -1,18 +1,18 @@
-<h1> Authentication Sample </h1>
+<h1> Signup to Neta News </h1>
 <form (ngSubmit)="sendSignupForm(myForm)" #myForm="ngForm">
   <h2> Signup </h2>
   <label> Username </label>
-  <input type="text" [(ngModel)]="username" name="username"/>
+  <input type="text" [(ngModel)]="username" name="username" required/>
   <br>
   <label> Password </label>
-  <input type="password" [(ngModel)]="password" name="password"/>
+  <input type="password" [(ngModel)]="password" name="password" rminlength="6" required/>
   <br>
   <label> Name </label>
   <input type="text" [(ngModel)]="name" name="name"/>
   <br>
-  <label> Secret </label>
-  <input type="text" [(ngModel)]="secret" name="secret"/>
+  <label> Email </label>
+  <input type="email" [(ngModel)]="email" name="email" required/>
 
-  <button type="submit"> login </button>
+  <button type="submit"> Login </button>
 </form>
 <p class="error"> {{ error }} </p>

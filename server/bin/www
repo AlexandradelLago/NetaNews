@@ -5,7 +5,9 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('lab-angular-auhtentication:server');
+
+//var debug = require('debug')('lab-angular-auhtentication:server');
+var debug = require('debug')('la-neta-news:server');
 var http = require('http');
 
 /**

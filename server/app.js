@@ -5,7 +5,10 @@ const logger         = require("morgan");
 const cookieParser   = require("cookie-parser");
 const bodyParser     = require("body-parser");
 const cors           = require("cors");
+// añadir rutas
+const profile = require("./routes/api/profile");
 const authController = require("./routes/authController");
+
 const session        = require("express-session");
 const passport       = require("passport");
 
@@ -14,7 +17,7 @@ const app            = express();
 
 // Mongoose configuration
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/angular-authentication")
+mongoose.connect("mongodb://localhost/la-neta-news")
   .then(console.log("Connected to DB!!"))
 
 // Session
@@ -47,6 +50,7 @@ require("./config/passport")(passport,app);
 
 
 app.use('/api', authController);
+app.use('/profile', profile);
 app.all('/*', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });
