@@ -1,4 +1,8 @@
-  body {
+.blue{
+    background-color:#4775d1;
+}
+
+body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {SessionService} from '../services/session.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-private',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavPrivateComponent implements OnInit {
 
-  constructor() { }
+  constructor( private sessionS : SessionService, private route : Router) { }
 
   ngOnInit() {
   }
-
+  logout(){
+    this.sessionS.logout()
+    .subscribe(res => this.route.navigate([""]))
+  }
 }
+

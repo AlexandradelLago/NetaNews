@@ -4,9 +4,13 @@ const favicon        = require("serve-favicon");
 const logger         = require("morgan");
 const cookieParser   = require("cookie-parser");
 const bodyParser     = require("body-parser");
+// apis
+
 const cors           = require("cors");
 // añadir rutas
 const profile = require("./routes/api/profile");
+const quote = require("./routes/api/quote");
+
 const authController = require("./routes/authController");
 
 const session        = require("express-session");
@@ -51,6 +55,7 @@ require("./config/passport")(passport,app);
 
 app.use('/api', authController);
 app.use('/profile', profile);
+app.use('/quote', quote);
 app.all('/*', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });

@@ -3,6 +3,7 @@ const authController = express.Router();
 const passport       = require("passport");
 
 const User           = require("../models/user");
+const Profile           = require("../models/Profile");
 
 const bcrypt         = require("bcrypt");
 const bcryptSalt     = 19;
@@ -54,7 +55,13 @@ authController.post("/signup", (req, res, next) => {
       .catch(err => res.status(400).json({ message: "Something went wrong" }))
       })
 
+      const newProfile = new Profile({
+        account:newUser._id
+      });
 
+      newProfile.save()
+      .then(profile=>res.status(201).json(profile))
+      .catch(err => res.status(400).json({ message: "Something went wrong" }));
   });
 });
 

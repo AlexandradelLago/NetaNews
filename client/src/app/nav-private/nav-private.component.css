@@ -1,0 +1,10 @@
+.nav-wrapper{
+    background-color:#4775d1;
+}
+
+.nav-wrapper img{
+    width:3vw;
+}
+a:hover{
+    color:#cccc00;
+}

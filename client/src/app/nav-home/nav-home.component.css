@@ -1,0 +1,20 @@
+.blue{
+    background-color:#4775d1;
+}
+
+.nav-wrapper img{
+    width:3vw;
+}
+a:hover{
+    color:#cccc00;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
