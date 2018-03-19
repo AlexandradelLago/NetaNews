@@ -8,9 +8,8 @@ const bodyParser     = require("body-parser");
 
 const cors           = require("cors");
 // añadir rutas
-const profile = require("./routes/api/profile");
-const quote = require("./routes/api/quote");
-
+const profile = require("./routes/profile");
+const apis = require("./routes/api/apis");
 const authController = require("./routes/authController");
 
 const session        = require("express-session");
@@ -53,9 +52,9 @@ app.use(session({
 require("./config/passport")(passport,app);
 
 
-app.use('/api', authController);
+app.use('/auth', authController);
 app.use('/profile', profile);
-app.use('/quote', quote);
+app.use('/apis', apis);
 app.all('/*', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });

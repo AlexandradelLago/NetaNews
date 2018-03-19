@@ -6,9 +6,9 @@ import { Http, Response} from '@angular/http';
 
 @Injectable()
 export class SessionService {
-  base_URL="http://localhost:3000/api"
-  options= {withCredentials:true}
-  constructor(private http:Http) { }
+  base_URL= 'http://localhost:3000/auth';
+  options= {withCredentials:true};
+  constructor(private http: Http) { }
   
   handleError(e) {
     return Observable.throw(e.json().message);

@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+// upload files
+import { FileSelectDirective } from "ng2-file-upload";
+
 // Servicios
 import { SessionService } from "./services/session.service";
 import { ApisService } from "./services/apis.service";
@@ -26,6 +29,7 @@ import { NavPrivateComponent } from './nav-private/nav-private.component';
 import { routes } from './routes/app.routing'
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
+import { NewProfileComponent } from './new-profile/new-profile.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,9 @@ import { FooterComponent } from './footer/footer.component';
     MyProfileComponent,
     NavHomeComponent,
     NavPrivateComponent,
-    FooterComponent
+    FooterComponent,
+    FileSelectDirective,
+    NewProfileComponent
   ],
   imports: [
     BrowserModule,

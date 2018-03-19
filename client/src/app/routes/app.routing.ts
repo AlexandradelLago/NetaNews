@@ -8,6 +8,7 @@ import { HomeComponent } from '../home/home.component';
 import { MyProfileComponent } from '../my-profile/my-profile.component';
 import { NavHomeComponent } from '../nav-home/nav-home.component';
 import { NavPrivateComponent } from '../nav-private/nav-private.component';
+import { NewProfileComponent } from '../new-profile/new-profile.component';
 
 
 export const routes:Routes = [
@@ -15,7 +16,8 @@ export const routes:Routes = [
     {path:"login" , component:AuthLoginComponent},
     {path:"signup" , component:AuthSignupComponent},
     {path:"private", component:MyPrivatePageComponent},
-    {path:"profile", component:MyProfileComponent}
+    {path:"profile", component:MyProfileComponent},
+    {path:"new-profile", component:NewProfileComponent},
 
 ]
 

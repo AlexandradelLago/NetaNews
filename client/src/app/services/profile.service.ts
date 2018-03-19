@@ -7,30 +7,35 @@ import { Http, Response} from '@angular/http';
 
 @Injectable()
 export class ProfileService {
-  base_URL="http://localhost:3000/profile";
+  BASE_URL: string = 'http://localhost:3000';
+  options : {withCredentials:true };
 
-  constructor( private http:Http) { }
+  constructor(private http: Http) {}
 
-  createProfile(){
-    
+// new profile
+  newProfile () {
+    return this.http.post(`${this.BASE_URL}/profile` , this.options )
+     .map (res => res.json());
   }
 
-  getProfile(id){
-    return this.http.get(`${this.base_URL}/${id}`)
-    .map(res => res.json());
+  // read profile
+  get(id) {
+    return this.http.get(`${this.BASE_URL}/profile/${id}`)
+      .map((res) => res.json());
   }
-// editar profile
-   patchItem(item):Observable<any>{
-    return this.http.patch(`${this.base_URL}/${item._id}`, item)
-    .map((res:Response)=>res.json())
-    .map(item=>item)
-    .catch(e=>{
-      console.log(e);
-      return Observable.throw(e);
-    })
+// edit profile
+  edit(profile) {
+    return this.http.put(`${this.BASE_URL}/profile/${profile.account}`, profile)
+      .map((res) => res.json());
   }
-
+// delete profile
+  remove(id) {
+    return this.http.delete(`${this.BASE_URL}/profile/${id}`)
+      .map((res) => res.json());
+  }
 }
+
+
 
 
 

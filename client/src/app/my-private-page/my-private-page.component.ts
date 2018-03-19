@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from "../services/session.service";
+import { ProfileService } from "../services/profile.service";
 import {ApisService} from "../services/apis.service";
 
 @Component({
@@ -9,17 +10,27 @@ import {ApisService} from "../services/apis.service";
 })
 export class MyPrivatePageComponent implements OnInit {
   username: string = "";
-  name: string = "";
+  email: string = "";
   quote: string = "";
   horoscope:string="";
+  profile:Object={};
+  sign:string="virgo";
 
-  constructor(private session: SessionService, private apiS : ApisService) { }
+  constructor(private session: SessionService, private apiS : ApisService, private profileS: ProfileService) { }
 
   ngOnInit() {
     this.session.loggedIn()
       .subscribe(user => {
-        this.name = user.name;
+        this.email= user.email;
         this.username = user.username;
+
+        this.profileS.get(user._id)
+        .subscribe(profile => {
+          this.profile= profile
+          console.log(profile)
+        });
+  
+
       });
 
       this.apiS.getQuote()
@@ -28,12 +39,13 @@ export class MyPrivatePageComponent implements OnInit {
           
       });
 
-      this.apiS.getHoroscope('libra')
+      this.apiS.getHoroscope(this.sign)
       .subscribe(h =>{
         this.horoscope=h.horoscope;
         
     });
 
+    
 
   }
 }

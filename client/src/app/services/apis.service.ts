@@ -8,7 +8,12 @@ import { Http, Response} from '@angular/http';
 export class ApisService {
   // me ha dicho andrei que mejor las declare en el backend y las llamo desde el front y de ahi le paso variables de busqueda etc
   base_URL="http://quotes.rest/qod.json";
-  base_URL_horoscope="http://sandipbgt.com/theastrologer/api/horoscope"
+  base_URL_horoscope="http://sandipbgt.com/theastrologer/api/horoscope";
+  // hay que poner noticias o everthing o sources o headlines
+  //base_URL_news="https://newsapi.org/v2/everything?q=bitcoin&apiKey=
+  //https://newsapi.org/v2/top-headlines?country=us&category=business
+  //https://newsapi.org/v2/sources?apiKey=API_KEY
+  API_KEY="3b4af330ce004204bc4122457cb415a6";
   constructor(private http:Http) { }
   
   handleError(e) {
@@ -26,6 +31,10 @@ export class ApisService {
     return this.http.get(`${this.base_URL_horoscope}/${sign}/today`)
       .map(res => res.json())
       .catch(err=>this.handleError(err))
+  }
+
+  getNews(language, country, qword, category){
+
   }
 
 }

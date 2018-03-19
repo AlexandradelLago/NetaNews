@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import categories from '../apiselectors/quoteCategories'
 import {ProfileService} from '../services/profile.service'
 import {SessionService} from '../services/session.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-profile',
@@ -9,15 +10,17 @@ import {SessionService} from '../services/session.service'
   styleUrls: ['./my-profile.component.css']
 })
 export class MyProfileComponent implements OnInit {
-  quotesCategory:Array<string>= categories;
 
-  constructor(private sessionS:SessionService, private profileS:ProfileService) { }
+
+  constructor() { }
 
   ngOnInit() {
-    console.log(this.quotesCategory);
   }
 
+
 }
+
+
 
 
 // import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';

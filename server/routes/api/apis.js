@@ -3,6 +3,8 @@ const router        = express.Router();
 const quote = require("stoic-api");
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('3b4af330ce004204bc4122457cb415a6');
+const User           = require("../../models/user");
+const Profile           = require("../../models/Profile");
 
 
 // randomo joke 

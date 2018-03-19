@@ -1,6 +1,6 @@
 const express       = require('express');
 const router        = express.Router();
-const Article         = require('../../models/Article');
+const Article         = require('../models/Article');
 
 // get articles
 router.get('/article', (req, res, next) => {
@@ -29,7 +29,7 @@ router.post('/article', (req, res, next) => {
 
   newArticle.save( (err) => {
     if (err)             { return res.status(500).json(err) }
-    if (newArticle.errors) { return res.status(400).json(new) }
+    if (newArticle.errors) { return res.status(400).json(newArticle) }
                            return res.json(newEntry);
   });
 });

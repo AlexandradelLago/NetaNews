@@ -14,6 +14,6 @@ export class AuthSignupComponent implements OnInit {
   }
   sendSignupForm(myForm){
     this.sessionS.signup(myForm.value)
-      .subscribe(()=> this.router.navigate(['private']))
+      .subscribe(()=> this.router.navigate(['new-profile']))
   }
 }

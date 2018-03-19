@@ -25,7 +25,6 @@ authController.post("/signup", (req, res, next) => {
     let newUser  = new User({
       username:req.body.username,
       password: hashPass,
-      name:req.body.name,
       email:req.body.email
     });
 
@@ -48,20 +47,21 @@ authController.post("/signup", (req, res, next) => {
 
     newUser.save()
       .then(user => {
+        //req.user=user
         req.login(user, (err) => {
           if (err) { return res.status(500).json({ message: "Something went wrong" }); }
-          res.status(200).json(req.user);
+          const newProfile = new Profile({
+            account:newUser._id
+          });
+    
+          newProfile.save()
+            .then(profile=>res.status(201).json(req.user))
+            .catch(err => console.log(err))
         })
-      .catch(err => res.status(400).json({ message: "Something went wrong" }))
+        
       })
+      .catch(err => res.status(400).json({ message: "Something went wrong" }))
 
-      const newProfile = new Profile({
-        account:newUser._id
-      });
-
-      newProfile.save()
-      .then(profile=>res.status(201).json(profile))
-      .catch(err => res.status(400).json({ message: "Something went wrong" }));
   });
 });
 
