@@ -5,8 +5,10 @@ import {ProfileService} from '../services/profile.service'
 import {SessionService} from '../services/session.service'
 import { FileUploader } from 'ng2-file-upload';
 import { Router } from '@angular/router';
+declare var jquery:any;
+declare var $: any;
 
-import $ from 'jquery';
+//import $ from 'jquery';
 
 @Component({
   selector: 'app-new-profile',
@@ -22,7 +24,8 @@ export class NewProfileComponent implements OnInit {
   constructor( private sessionS: SessionService,private profileS:ProfileService, private route:Router) { }
 
   ngOnInit() {
-    $('select').material_select();
+    console.log(this.quotesCategory);
+    ($('select') as any).material_select();
  // tengo que hacer llamada al loggedin servicio y sacar el req.user 
   this.sessionS.loggedIn()
     .subscribe(result => {

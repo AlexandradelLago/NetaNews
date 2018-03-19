@@ -1,33 +1,41 @@
 
 
-
+      <!-- <label>What kind of quote of the day you prefere?</label>
+      <p>{{quotesCategory[0]}}</p>
+      <div class="input-field col s12">
+<select ngModel name="quotes"  >
+  <!-- <option [ngValue]="quotesCategory[0]">{{quotesCategory[0]}}</option> -->
+<!-- 
+  <option [value]="quotesCategory[0]">{{quotesCategory[0]}}</option>
+  <option [value]="quotesCategory[1]">{{quotesCategory[1]}}</option>
+</select>
+</div>
+<div class="input-field col s12">
+    <select  name="news">
+      <option value="" disabled selected>Choose your option</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+    <label>Materialize Select</label>
+  </div> --> -->
 
       <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
 
-          <label>What kind of quote of the day you prefere?</label>
-          <p>{{quotesCategory | json}}</p>
-    <select ngModel name="quotes"  >
-      <option *ngFor="let category of quotesCategory" >{{category}}</option>
-    </select>
-    <div class="input-field col s12">
-        <select ngModel name="news">
-          <option value="" disabled selected>Choose your option</option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3</option>
-        </select>
-        <label>Materialize Select</label>
-      </div>
-          <p> Name
-            <input type="text" name="name" [(ngModel)]="name" />
-          </p>
-          <p> Birthday
-            <input type="date" name="birthday" [(ngModel)]="birthday" />
-          </p>
-          <p> Profile Picture
+    
+      <div>
+        <p> Name
+          <input type="text" name="name" [(ngModel)]="name" />
+        </p>
+        <p> Birthday
+          <input type="date" name="birthday" [(ngModel)]="birthday" />
+        </p>
+        <p> Profile Picture
 
-            <input type="file" name="profilepicture" ng2FileSelect [uploader]="uploader" />      
-          </p>
+          <input type="file" name="profilepicture" ng2FileSelect [uploader]="uploader" />      
+        </p>
+      </div>
+        
           <button class="waves-effect waves-light btn" type="submit"> Update Profile </button>
         </form>
 
