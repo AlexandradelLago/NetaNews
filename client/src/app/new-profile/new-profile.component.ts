@@ -9,7 +9,7 @@ declare var jquery:any;
 declare var $: any;
 
 //import $ from 'jquery';
-
+//lol
 @Component({
   selector: 'app-new-profile',
   templateUrl: './new-profile.component.html',
