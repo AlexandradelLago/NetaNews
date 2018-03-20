@@ -24,10 +24,11 @@ router.get('/:id', (req, res, next) => {
 // create a profile esta en user
 
 // update a profiles
-router.post('/',upload.single("profilepicture"), (req,res,next)=>{
+router.post('/',upload.single("file"), (req,res,next)=>{
   const updates = {
     birthday   : req.body.birthday,
     name  : req.body.name,
+    quote: req.body.quote,
     profilePic: `/uploads/${req.file.filename}`
   };
   Profile.findOneAndUpdate({account:req.user._id}, updates, {new:true})

@@ -22,7 +22,7 @@ export class NewProfileComponent implements OnInit {
   constructor( private sessionS: SessionService,private profileS:ProfileService, private route:Router) { }
 
   ngOnInit() {
-    $('select').material_select();
+   // $('select').material_select();
  // tengo que hacer llamada al loggedin servicio y sacar el req.user 
   this.sessionS.loggedIn()
     .subscribe(result => {
@@ -39,6 +39,7 @@ export class NewProfileComponent implements OnInit {
     this.uploader.onBuildItemForm = (item, form) => {
       form.append('name', newForm.value.name);
       form.append('birthday', newForm.value.birthday);
+      form.append('quote', newForm.value.quote)
     };
     // uploaderAll hace la llamada post por mi al back
     this.uploader.uploadAll();

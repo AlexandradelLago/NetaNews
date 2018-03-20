@@ -1,20 +1,22 @@
 
 
 
-
+<app-nav-private></app-nav-private>
       <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
 
           <label>What kind of quote of the day you prefere?</label>
-          <p>{{quotesCategory | json}}</p>
-    <select ngModel name="quotes"  >
-      <option *ngFor="let category of quotesCategory" >{{category}}</option>
-    </select>
+
+
     <div class="input-field col s12">
-        <select ngModel name="news">
+        <select ngModel name="quote" materialize="material_select" >
           <option value="" disabled selected>Choose your option</option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3</option>
+          <option [value]="quotesCategory[0]">{{quotesCategory[0]}}</option>
+          <option [value]="quotesCategory[1]">{{quotesCategory[1]}}</option>
+          <option [value]="quotesCategory[2]">{{quotesCategory[2]}}</option>
+          <option [value]="quotesCategory[3]">{{quotesCategory[3]}}</option>
+          <option [value]="quotesCategory[4]">{{quotesCategory[4]}}</option>
+          <option [value]="quotesCategory[5]">{{quotesCategory[5]}}</option>
+          <option [value]="quotesCategory[6]">{{quotesCategory[6]}}</option>
         </select>
         <label>Materialize Select</label>
       </div>
@@ -26,7 +28,7 @@
           </p>
           <p> Profile Picture
 
-            <input type="file" name="profilepicture" ng2FileSelect [uploader]="uploader" />      
+            <input type="file" name="file" ng2FileSelect [uploader]="uploader" />      
           </p>
           <button class="waves-effect waves-light btn" type="submit"> Update Profile </button>
         </form>

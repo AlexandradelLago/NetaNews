@@ -26,7 +26,7 @@ export class MyPrivatePageComponent implements OnInit {
 
         this.profileS.get(user._id)
         .subscribe(profile => {
-          this.profile= profile
+          this.profile= profile;
           console.log(profile)
         });
   
