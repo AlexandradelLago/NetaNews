@@ -15,6 +15,7 @@ export class MyPrivatePageComponent implements OnInit {
   horoscope:string="";
   profile:Object={};
   sign:string="virgo";
+  category:string="";
 
   constructor(private session: SessionService, private apiS : ApisService, private profileS: ProfileService) { }
 
@@ -26,24 +27,33 @@ export class MyPrivatePageComponent implements OnInit {
 
         this.profileS.get(user._id)
         .subscribe(profile => {
-          this.profile= profile
-          console.log(profile)
+          this.profile= profile;
+
+          this.apiS.getQuote(profile.quote)
+          .subscribe(quote =>{
+            console.log("esta es la categoria"+this.category);
+            console.log(quote);
+              this.quote=quote.contents.quotes[0].quote;
+              
+          });
+
+          this.apiS.getHoroscope(profile.sign)
+          .subscribe(h =>{
+            this.horoscope=h.horoscope;
+            
+        });
+        
+
         });
   
 
       });
 
-      this.apiS.getQuote()
-      .subscribe(quote =>{
-          this.quote=quote.contents.quotes[0].quote;
-          
-      });
+      
+     
+   
 
-      this.apiS.getHoroscope(this.sign)
-      .subscribe(h =>{
-        this.horoscope=h.horoscope;
-        
-    });
+  
 
     
 

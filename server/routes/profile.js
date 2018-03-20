@@ -4,14 +4,6 @@ const Profile         = require('../models/Profile');
 var multer  = require('multer');
 var upload = multer({ dest: './public/uploads/' });
 
-// // get articles
-// router.get('/profile', (req, res, next) => {
-//   Profile.find({}, (err, profiles) => {
-//     if (err) { return res.json(err).status(500); }
-
-//     return res.json(profiles);
-//   });
-// });
 // get single article
 router.get('/:id', (req, res, next) => {
   Profile.findOne({account:req.params.id}, (err, profile) => {
@@ -24,10 +16,11 @@ router.get('/:id', (req, res, next) => {
 // create a profile esta en user
 
 // update a profiles
-router.post('/',upload.single("profilepicture"), (req,res,next)=>{
+router.post('/',upload.single("file"), (req,res,next)=>{
   const updates = {
-    birthday   : req.body.birthday,
-    name  : req.body.name,
+   // birthday   : req.body.birthday,
+    sign  : req.body.sign,
+    quote: req.body.quote,
     profilePic: `/uploads/${req.file.filename}`
   };
   Profile.findOneAndUpdate({account:req.user._id}, updates, {new:true})

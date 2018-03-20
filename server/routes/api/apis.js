@@ -9,7 +9,7 @@ const Profile           = require("../../models/Profile");
 
 // randomo joke 
 router.get("/",(req,res,next) =>{
-
+  
     quote.random(  (err, quote)=> {
         if (err)    { return res.json(err).status(500); }
         if (!quote) { return res.json(err).status(404); }

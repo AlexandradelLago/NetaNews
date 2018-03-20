@@ -30,19 +30,6 @@ authController.post("/signup", (req, res, next) => {
 
     console.log(newUser);
 
-//Vieja forma de guardar un User
-
-    // newUser.save((err) => {
-    //   if (err) { res.status(400).json({ message: "Something went wrong" }); }
-    //   else {
-    //     console.log("creating!!")
-    //     req.login(newUser, (err) => {
-    //       if (err) { return res.status(500).json({ message: "Something went wrong" }); }
-    //       res.status(200).json(req.user);
-    //     });
-    //   }
-    // });
-
 //Nueva forma de guardar el user , con Promesas
 
     newUser.save()

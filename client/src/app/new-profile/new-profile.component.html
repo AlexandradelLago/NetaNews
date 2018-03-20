@@ -1,41 +1,45 @@
 
 
-      <!-- <label>What kind of quote of the day you prefere?</label>
-      <p>{{quotesCategory[0]}}</p>
-      <div class="input-field col s12">
-<select ngModel name="quotes"  >
-  <!-- <option [ngValue]="quotesCategory[0]">{{quotesCategory[0]}}</option> -->
-<!-- 
-  <option [value]="quotesCategory[0]">{{quotesCategory[0]}}</option>
-  <option [value]="quotesCategory[1]">{{quotesCategory[1]}}</option>
-</select>
-</div>
-<div class="input-field col s12">
-    <select  name="news">
+
+<app-nav-private></app-nav-private>
+ <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
+  <div class="input-field col s12">
+    <select ngModel name="sign" materialize="material_select" >
       <option value="" disabled selected>Choose your option</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
+      <option [value]="zodiacSign[0]">{{zodiacSign[0]}}</option>
+      <option [value]="zodiacSign[1]">{{zodiacSign[1]}}</option>
+      <option [value]="zodiacSign[2]">{{zodiacSign[2]}}</option>
+      <option [value]="zodiacSign[3]">{{zodiacSign[3]}}</option>
+      <option [value]="zodiacSign[4]">{{zodiacSign[4]}}</option>
+      <option [value]="zodiacSign[5]">{{zodiacSign[5]}}</option>
+      <option [value]="zodiacSign[6]">{{zodiacSign[6]}}</option>
     </select>
-    <label>Materialize Select</label>
-  </div> --> -->
+    <label>What is your zodiac sign?</label>
+  </div>
+       
 
-      <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
 
-    
-      <div>
-        <p> Name
-          <input type="text" name="name" [(ngModel)]="name" />
-        </p>
-        <p> Birthday
-          <input type="date" name="birthday" [(ngModel)]="birthday" />
-        </p>
-        <p> Profile Picture
-
-          <input type="file" name="profilepicture" ng2FileSelect [uploader]="uploader" />      
-        </p>
+    <div class="input-field col s12">
+        <select ngModel name="quote" materialize="material_select" >
+          <option value="" disabled selected>Choose your option</option>
+          <option [value]="quotesCategory[0]">{{quotesCategory[0]}}</option>
+          <option [value]="quotesCategory[1]">{{quotesCategory[1]}}</option>
+          <option [value]="quotesCategory[2]">{{quotesCategory[2]}}</option>
+          <option [value]="quotesCategory[3]">{{quotesCategory[3]}}</option>
+          <option [value]="quotesCategory[4]">{{quotesCategory[4]}}</option>
+          <option [value]="quotesCategory[5]">{{quotesCategory[5]}}</option>
+          <option [value]="quotesCategory[6]">{{quotesCategory[6]}}</option>
+        </select>
+        <label>What kind of quote of the day you prefere?</label>
       </div>
-        
+  
+          <!-- <p> Birthday
+            <input type="date" name="birthday" [(ngModel)]="birthday" />
+          </p> -->
+          <p> Profile Picture
+
+            <input type="file" name="file" ng2FileSelect [uploader]="uploader" />      
+          </p>
           <button class="waves-effect waves-light btn" type="submit"> Update Profile </button>
         </form>
 
