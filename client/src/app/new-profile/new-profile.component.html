@@ -2,9 +2,21 @@
 
 
 <app-nav-private></app-nav-private>
-      <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
-
-          <label>What kind of quote of the day you prefere?</label>
+ <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
+  <div class="input-field col s12">
+    <select ngModel name="sign" materialize="material_select" >
+      <option value="" disabled selected>Choose your option</option>
+      <option [value]="zodiacSign[0]">{{zodiacSign[0]}}</option>
+      <option [value]="zodiacSign[1]">{{zodiacSign[1]}}</option>
+      <option [value]="zodiacSign[2]">{{zodiacSign[2]}}</option>
+      <option [value]="zodiacSign[3]">{{zodiacSign[3]}}</option>
+      <option [value]="zodiacSign[4]">{{zodiacSign[4]}}</option>
+      <option [value]="zodiacSign[5]">{{zodiacSign[5]}}</option>
+      <option [value]="zodiacSign[6]">{{zodiacSign[6]}}</option>
+    </select>
+    <label>What is your zodiac sign?</label>
+  </div>
+       
 
 
     <div class="input-field col s12">
@@ -18,14 +30,12 @@
           <option [value]="quotesCategory[5]">{{quotesCategory[5]}}</option>
           <option [value]="quotesCategory[6]">{{quotesCategory[6]}}</option>
         </select>
-        <label>Materialize Select</label>
+        <label>What kind of quote of the day you prefere?</label>
       </div>
-          <p> Name
-            <input type="text" name="name" [(ngModel)]="name" />
-          </p>
-          <p> Birthday
+  
+          <!-- <p> Birthday
             <input type="date" name="birthday" [(ngModel)]="birthday" />
-          </p>
+          </p> -->
           <p> Profile Picture
 
             <input type="file" name="file" ng2FileSelect [uploader]="uploader" />      
