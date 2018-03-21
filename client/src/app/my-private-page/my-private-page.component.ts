@@ -16,10 +16,16 @@ export class MyPrivatePageComponent implements OnInit {
   profile:Object={};
   sign:string="virgo";
   category:string="";
+  news = {
+    articles: [],
+
+  };
+  
 
   constructor(private session: SessionService, private apiS : ApisService, private profileS: ProfileService) { }
 
   ngOnInit() {
+    
     this.session.loggedIn()
       .subscribe(user => {
         this.email= user.email;
@@ -41,21 +47,17 @@ export class MyPrivatePageComponent implements OnInit {
           .subscribe(h =>{
             this.horoscope=h.horoscope;
             
-        });
-        
-
+          });
+        console.log(profile.news);
+        this.apiS.getNews(profile.news)
+        .subscribe(news =>{
+          this.news=news;
         });
   
 
       });
-
-      
-     
-   
-
-  
-
-    
-
-  }
+  });
 }
+
+}
+

@@ -9,7 +9,7 @@ const profileSchema = new Schema({
   quote:{type:String , default:''},
   news:{
     language :{type:String, default:''},
-    country:{type:String,default :''}
+    category:{type:String,default :''}
   }
 });
 

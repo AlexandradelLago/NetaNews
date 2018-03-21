@@ -17,16 +17,35 @@ router.get('/:id', (req, res, next) => {
 
 // update a profiles
 router.post('/',upload.single("file"), (req,res,next)=>{
-  const updates = {
-   // birthday   : req.body.birthday,
-    sign  : req.body.sign,
-    quote: req.body.quote,
-    profilePic: `/uploads/${req.file.filename}`
-  };
+  // me hace un update pero quiero que haga patch no put -- preguntar a joss
+ let updates;
+ console.log(req.body);
+  if (req.file != undefined){
+    updates = {
+      // birthday   : req.body.birthday,
+       sign  : req.body.sign,
+       quote: req.body.quote,
+       news:{category:req.body.category,
+       language:req.body.language},
+       profilePic: `/uploads/${req.file.filename}`
+     };
+  }else{
+    updates = {
+      // birthday   : req.body.birthday,
+       sign  : req.body.sign,
+       quote: req.body.quote,
+       news:{category:req.body.category,
+        language:req.body.language},
+     };
+     console.log("estoy dentro del if"+updates);
+  }
+  console.log("estoy fuera y  el updates "+updates)
+ console.log(req.user);
   Profile.findOneAndUpdate({account:req.user._id}, updates, {new:true})
   .then(item=>res.status(200).json(item))
   .catch(e=>res.status(500).send(e));
 });
+
 
 
 // delete article

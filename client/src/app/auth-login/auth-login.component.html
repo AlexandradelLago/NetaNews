@@ -1,34 +1,37 @@
 <app-nav-home></app-nav-home> 
-
-<div class="row ">
-  <form class="col s9 ">
-    <div class="row">
-        <div class="input-field col s3">
-            <label for="username"> Username </label>
-            <input type="text" [(ngModel)]="formInfo.username" name="username" class="validate"/>
-      
-          </div>
-
-    </div>
-  
+<section class="container">
 
     <div class="row">
-
-        <div class="input-field col s3">
-            <label for="password" data-error="wrong" data-success="right"> Password </label>
-            <input type="password" [(ngModel)]="formInfo.password" name="password" class="validate" />
+        <form class="col s9 ">
+          <div class="row">
+              <div class="input-field col s3">
+                  <label for="username"> Username </label>
+                  <input type="text" [(ngModel)]="formInfo.username" name="username" class="validate"/>
+            
+                </div>
       
           </div>
-
+        
+      
+          <div class="row">
+      
+              <div class="input-field col s3">
+                  <label for="password" data-error="wrong" data-success="right"> Password </label>
+                  <input type="password" [(ngModel)]="formInfo.password" name="password" class="validate" />
+            
+                </div>
+      
+            </div>
+      
+      
+        
+          <button class="waves-effect waves-light btn" (click)="sendForm()"> login </button>
+        </form>
       </div>
 
 
-  
-    <button class="waves-effect waves-light btn" (click)="sendForm()"> login </button>
-  </form>
+</section>
 
-
-</div>
 
   <p class="error"> {{ error }} </p>
 
