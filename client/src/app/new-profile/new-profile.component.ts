@@ -8,9 +8,11 @@ import {ProfileService} from '../services/profile.service'
 import {SessionService} from '../services/session.service'
 import { FileUploader } from 'ng2-file-upload';
 import { Router } from '@angular/router';
+declare var jquery:any;
+declare var $: any;
 
-import $ from 'jquery';
-
+//import $ from 'jquery';
+//lol
 @Component({
   selector: 'app-new-profile',
   templateUrl: './new-profile.component.html',

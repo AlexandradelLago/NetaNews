@@ -78,15 +78,15 @@
       
           
           <div  *ngIf="header == 'sources'" class="input-field col s12" class="collapsible" data-collapsible="accordion">
-              <select ngModel name="category" materialize="material_select" >
+              <select ngModel name="sources" materialize="material_select" >
                 <option value="" disabled selected>ha salido</option>
-                <option [value]="news.categories[0]">{{news.categories[0]}}</option>
-                <option [value]="news.categories[1]">{{news.categories[1]}}</option>
-                <option [value]="news.categories[2]">{{news.categories[2]}}</option>
-                <option [value]="news.categories[3]">{{news.categories[3]}}</option>
-                <option [value]="news.categories[4]">{{news.categories[4]}}</option>
-                <option [value]="news.categories[5]">{{news.categories[5]}}</option>
-                <option [value]="news.categories[6]">{{news.categories[6]}}</option>
+                <option [value]="news.sources[0]">{{news.sources[0]}}</option>
+                <option [value]="news.sources[1]">{{news.sources[1]}}</option>
+                <option [value]="news.sources[2]">{{news.sources[2]}}</option>
+                <option [value]="news.sources[3]">{{news.sources[3]}}</option>
+                <option [value]="news.sources[4]">{{news.sources[4]}}</option>
+                <option [value]="news.sources[5]">{{news.sources[5]}}</option>
+                <option [value]="news.sources[6]">{{news.sources[6]}}</option>
               </select>
               <label>What category of news?</label>
               <!-- <button (click)="nextStep()">Next</button> -->
